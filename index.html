@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard Géochimique — Zone Aurifère</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<!-- ── Sidebar ──────────────────────────────────────────────── -->
+<aside class="sidebar">
+  <div class="sidebar-logo">
+    <div class="logo-icon">⛏</div>
+    <div>
+      <div class="logo-text">GéoChimie Au</div>
+      <div class="logo-sub">Bouclier Précambrien</div>
+    </div>
+  </div>
+
+  <nav class="nav">
+    <div class="nav-section">Analyse</div>
+    <button class="nav-link active" data-section="overview">
+      <span class="icon">📊</span> Vue d'ensemble
+    </button>
+    <button class="nav-link" data-section="pathfinders">
+      <span class="icon">🔗</span> Pathfinders
+    </button>
+    <button class="nav-link" data-section="majeurs">
+      <span class="icon">⚗️</span> Éléments majeurs
+    </button>
+
+    <div class="nav-section" style="margin-top:8px;">Données</div>
+    <button class="nav-link" data-section="donnees">
+      <span class="icon">🗂️</span> Tableau complet
+    </button>
+  </nav>
+
+  <div class="sidebar-footer">
+    Projet : Zone Aurifère Fictive<br>
+    15 échantillons · 2024
+  </div>
+</aside>
+
+<!-- ── Main ─────────────────────────────────────────────────── -->
+<main class="main">
+
+  <!-- Topbar -->
+  <header class="topbar">
+    <span class="topbar-title" id="topbar-title">Vue d'ensemble</span>
+    <div class="topbar-pills">
+      <span class="pill pill-red">5 cibles prioritaires</span>
+      <span class="pill pill-orange">2 cibles secondaires</span>
+      <span class="pill pill-yellow">4 zones à surveiller</span>
+      <span class="pill pill-gray">4 non significatifs</span>
+    </div>
+  </header>
+
+  <div class="content">
+
+    <!-- ══ SECTION: Vue d'ensemble ═══════════════════════════ -->
+    <section class="section active" id="sec-overview">
+      <div class="section-header">
+        <div class="section-title">Vue d'ensemble — Teneur en or</div>
+        <div class="section-desc">15 échantillons analysés · Zone Aurifère Fictive · Bouclier Précambrien · 2024</div>
+      </div>
+
+      <!-- Metrics -->
+      <div class="metrics">
+        <div class="metric-card gold">
+          <div class="metric-label">Au maximum</div>
+          <div class="metric-value" id="m-maxau">—</div>
+          <div class="metric-unit">ppb</div>
+        </div>
+        <div class="metric-card red">
+          <div class="metric-label">Cibles prioritaires ≥2000</div>
+          <div class="metric-value" id="m-cibles">—</div>
+          <div class="metric-unit">échantillons</div>
+        </div>
+        <div class="metric-card blue">
+          <div class="metric-label">Au moyen</div>
+          <div class="metric-value" id="m-avgau">—</div>
+          <div class="metric-unit">ppb</div>
+        </div>
+        <div class="metric-card green">
+          <div class="metric-label">As moyen</div>
+          <div class="metric-value" id="m-avgas">—</div>
+          <div class="metric-unit">ppm</div>
+        </div>
+        <div class="metric-card purple">
+          <div class="metric-label">Te moyen</div>
+          <div class="metric-value" id="m-avgte">—</div>
+          <div class="metric-unit">ppm</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-label">S moyen</div>
+          <div class="metric-value" id="m-avgs">—</div>
+          <div class="metric-unit">%</div>
+        </div>
+      </div>
+
+      <!-- Charts row 1 -->
+      <div class="grid-full">
+        <div class="card">
+          <div class="card-title">Teneur en or par échantillon (ppb)</div>
+          <div class="legend">
+            <span class="legend-item"><span class="legend-dot" style="background:#da3633"></span>Très haute ≥2000</span>
+            <span class="legend-item"><span class="legend-dot" style="background:#e3622a"></span>Haute 500–1999</span>
+            <span class="legend-item"><span class="legend-dot" style="background:#c9a227"></span>Modérée 50–499</span>
+            <span class="legend-item"><span class="legend-dot" style="background:#444c56"></span>Faible &lt;50</span>
+          </div>
+          <div class="chart-wrap" style="height:240px;">
+            <canvas id="chart-au-bar" role="img" aria-label="Teneur en or par échantillon, GC-01 à GC-15">Valeurs Au (ppb) pour 15 échantillons de la zone aurifère.</canvas>
+          </div>
+        </div>
+      </div>
+
+      <!-- Charts row 2 -->
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-title">Répartition par classe Au</div>
+          <div class="chart-wrap" style="height:220px;">
+            <canvas id="chart-donut" role="img" aria-label="Répartition des échantillons par classe de teneur en or">5 très haute, 2 haute, 4 modérée, 4 faible.</canvas>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-title">Au moyen par formation géologique (ppb)</div>
+          <div class="chart-wrap" style="height:220px;">
+            <canvas id="chart-fm" role="img" aria-label="Teneur en or moyenne par formation géologique">Pontiac, Abitibi, Chicobi, Normétal, Rouyn, Duparquet.</canvas>
+          </div>
+        </div>
+      </div>
+
+      <!-- Charts row 3 -->
+      <div class="grid-full">
+        <div class="card">
+          <div class="card-title">Évolution de la teneur Au selon la profondeur (m)</div>
+          <div class="chart-wrap" style="height:200px;">
+            <canvas id="chart-depth" role="img" aria-label="Teneur en or en fonction de la profondeur de forage">Corrélation Au vs profondeur pour 15 échantillons.</canvas>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ SECTION: Pathfinders ══════════════════════════════ -->
+    <section class="section" id="sec-pathfinders">
+      <div class="section-header">
+        <div class="section-title">Éléments pathfinders de l'or</div>
+        <div class="section-desc">Indicateurs géochimiques associés aux minéralisations aurifères</div>
+      </div>
+
+      <div class="grid-full">
+        <div class="card">
+          <div class="card-title">Corrélation des pathfinders avec Au (r)</div>
+          <div class="legend">
+            <span class="legend-item"><span class="legend-dot" style="background:#da3633"></span>Très forte r≥0.9</span>
+            <span class="legend-item"><span class="legend-dot" style="background:#e3622a"></span>Forte 0.8–0.9</span>
+            <span class="legend-item"><span class="legend-dot" style="background:#c9a227"></span>Modérée 0.7–0.8</span>
+            <span class="legend-item"><span class="legend-dot" style="background:#444c56"></span>Faible &lt;0.7</span>
+          </div>
+          <div class="chart-wrap" style="height:200px;">
+            <canvas id="chart-corr" role="img" aria-label="Corrélation r de chaque élément pathfinder avec la teneur en or">Te=0.97, As=0.92, S=0.91, Sb=0.88, Ag=0.85, Pb=0.72, Cu=0.68, Fe=0.55</canvas>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-title">Au vs Arsenic (As)</div>
+          <div style="font-size:11px;color:var(--text3);margin-bottom:8px;">r = 0.92 — Fort indicateur (halo d'altération)</div>
+          <div class="chart-wrap" style="height:200px;">
+            <canvas id="chart-scatter-as" role="img" aria-label="Nuage de points Au en fonction de As">Corrélation forte entre Au et As.</canvas>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-title">Au vs Tellure (Te)</div>
+          <div style="font-size:11px;color:var(--text3);margin-bottom:8px;">r = 0.97 — Meilleur indicateur (télurites d'Au)</div>
+          <div class="chart-wrap" style="height:200px;">
+            <canvas id="chart-scatter-te" role="img" aria-label="Nuage de points Au en fonction de Te">Corrélation très forte entre Au et Te.</canvas>
+          </div>
+        </div>
+      </div>
+
+      <div class="card grid-full">
+        <div class="card-title">Anomalies pathfinders — Comparaison moy. vs seuil</div>
+        <div id="pf-bars"></div>
+      </div>
+    </section>
+
+    <!-- ══ SECTION: Éléments majeurs ════════════════════════ -->
+    <section class="section" id="sec-majeurs">
+      <div class="section-header">
+        <div class="section-title">Éléments majeurs (%)</div>
+        <div class="section-desc">Oxydes majeurs : SiO₂, Al₂O₃, Fe₂O₃, MgO, CaO, Na₂O, K₂O</div>
+      </div>
+
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-title">Profil moyen — radar géochimique</div>
+          <div class="chart-wrap" style="height:260px;">
+            <canvas id="chart-radar" role="img" aria-label="Radar des moyennes des oxydes majeurs">SiO2 61.7, Al2O3 15.0, Fe2O3 8.2, MgO 3.6, CaO 5.2, Na2O 2.9, K2O 2.6</canvas>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-title">SiO₂ vs Fe₂O₃ — discrimination lithologique</div>
+          <div style="font-size:11px;color:var(--text3);margin-bottom:8px;">Couleur = classe Au</div>
+          <div class="chart-wrap" style="height:260px;">
+            <canvas id="chart-sio2-fe" role="img" aria-label="Nuage de points SiO2 vs Fe2O3 coloré par classe de teneur en or">Discrimination lithologique par oxydes majeurs.</canvas>
+          </div>
+        </div>
+      </div>
+
+      <div class="card grid-full">
+        <div class="card-title">Éléments majeurs par échantillon (groupés)</div>
+        <div class="chart-wrap" style="height:280px;">
+          <canvas id="chart-majeurs-bar" role="img" aria-label="Histogramme groupé des oxydes majeurs pour chaque échantillon">Comparaison des 7 oxydes majeurs par échantillon.</canvas>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ SECTION: Données ══════════════════════════════════ -->
+    <section class="section" id="sec-donnees">
+      <div class="section-header">
+        <div class="section-title">Tableau des données géochimiques</div>
+        <div class="section-desc">Base de données complète — 15 échantillons · cliquez sur les en-têtes pour trier</div>
+      </div>
+
+      <div class="table-wrap">
+        <div class="table-header">
+          <span class="table-header-title" id="table-count">15 échantillons</span>
+          <input class="search-input" id="table-search" type="text" placeholder="🔍  Rechercher…" />
+        </div>
+        <table>
+          <thead>
+            <tr>
+              <th data-sort="id">ID <span class="sort-icon">↕</span></th>
+              <th data-sort="roche">Lithologie <span class="sort-icon">↕</span></th>
+              <th data-sort="fm">Formation <span class="sort-icon">↕</span></th>
+              <th data-sort="prof">Profondeur <span class="sort-icon">↕</span></th>
+              <th data-sort="au">Au (ppb) <span class="sort-icon">↕</span></th>
+              <th data-sort="as">As <span class="sort-icon">↕</span></th>
+              <th data-sort="sb">Sb <span class="sort-icon">↕</span></th>
+              <th data-sort="te">Te <span class="sort-icon">↕</span></th>
+              <th data-sort="ag">Ag <span class="sort-icon">↕</span></th>
+              <th data-sort="cu">Cu <span class="sort-icon">↕</span></th>
+              <th data-sort="s">S% <span class="sort-icon">↕</span></th>
+              <th>Classe</th>
+            </tr>
+          </thead>
+          <tbody id="data-tbody"></tbody>
+        </table>
+      </div>
+    </section>
+
+  </div><!-- /content -->
+</main>
+
+<!-- Tooltip -->
+<div class="custom-tooltip" id="tooltip"></div>
+
+<!-- Scripts -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<script src="data.js"></script>
+<script src="app.js"></script>
+
+</body>
+</html>
