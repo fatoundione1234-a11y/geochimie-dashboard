@@ -253,3 +253,68 @@ tbody td:first-child { font-weight: 600; color: var(--text); font-family: monosp
 /* ── Animate ─────────────────────────────────────────────────── */
 @keyframes fadeIn { from { opacity:0; transform:translateY(8px); } to { opacity:1; transform:translateY(0); } }
 .section.active { animation: fadeIn .25s ease; }
+
+/* ── Interprétation ──────────────────────────────────────────── */
+.interp-card {
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
+  overflow: hidden;
+  margin-bottom: 0;
+}
+.interp-card-head {
+  display: flex; align-items: center; gap: 12px;
+  padding: 14px 18px;
+  border-bottom: 1px solid var(--border);
+}
+.interp-icon { font-size: 22px; flex-shrink: 0; }
+.interp-card-title { font-size: 14px; font-weight: 600; color: var(--text); }
+.interp-card-sub   { font-size: 12px; color: var(--text3); margin-top: 2px; }
+.interp-card-head .badge { margin-left: auto; }
+
+.interp-body { padding: 16px 18px; font-size: 13px; color: var(--text2); line-height: 1.7; }
+.interp-body p { margin-bottom: 10px; }
+.interp-body strong { color: var(--text); }
+
+/* Couleurs des cartes */
+.interp-gold   { background: linear-gradient(135deg, rgba(212,160,23,.07) 0%, var(--bg2) 60%); border-color: rgba(212,160,23,.35); }
+.interp-red    { background: var(--bg2); border-color: rgba(218,54,51,.3); }
+.interp-blue   { background: var(--bg2); border-color: rgba(31,111,235,.3); }
+.interp-green  { background: var(--bg2); border-color: rgba(35,134,54,.3); }
+.interp-purple { background: var(--bg2); border-color: rgba(110,64,201,.3); }
+
+.interp-gold   .interp-card-head { background: rgba(212,160,23,.08); }
+.interp-red    .interp-card-head { background: rgba(218,54,51,.07); }
+.interp-blue   .interp-card-head { background: rgba(31,111,235,.07); }
+.interp-green  .interp-card-head { background: rgba(35,134,54,.07); }
+.interp-purple .interp-card-head { background: rgba(110,64,201,.07); }
+
+/* Liste échantillons */
+.interp-sample-list { display: flex; flex-direction: column; gap: 10px; }
+.interp-sample { display: flex; gap: 10px; align-items: flex-start; padding: 8px 10px; background: var(--bg3); border-radius: 6px; }
+.interp-sample-id   { font-family: monospace; font-size: 12px; font-weight: 700; color: #da3633; min-width: 44px; margin-top: 1px; }
+.interp-sample-desc { font-size: 12px; color: var(--text2); line-height: 1.5; }
+
+/* Corrélation bars */
+.interp-corr-list { display: flex; flex-direction: column; gap: 8px; margin: 10px 0; }
+.interp-corr-row  { display: grid; grid-template-columns: 28px 1fr 60px; align-items: center; gap: 10px; }
+.interp-corr-elem { font-family: monospace; font-weight: 700; font-size: 13px; }
+.interp-corr-bar-bg   { height: 7px; background: var(--bg3); border-radius: 4px; overflow: hidden; }
+.interp-corr-bar-fill { height: 100%; border-radius: 4px; }
+.interp-corr-val  { font-size: 11px; color: var(--text2); font-weight: 600; text-align: right; }
+.interp-corr-desc { display: none; }
+
+/* Facteurs géologiques */
+.interp-factor { padding: 12px; background: var(--bg3); border-radius: 8px; }
+.interp-factor-title { font-size: 12px; font-weight: 600; color: var(--green-l); margin-bottom: 6px; }
+.interp-factor-desc  { font-size: 12px; color: var(--text2); line-height: 1.6; }
+
+/* Recommandations */
+.interp-reco-list { display: flex; flex-direction: column; gap: 10px; }
+.interp-reco { display: flex; gap: 12px; align-items: flex-start; padding: 10px 12px; background: var(--bg3); border-radius: 6px; }
+.interp-reco-badge { display: inline-block; padding: 3px 8px; border-radius: 4px; font-size: 10px; font-weight: 700; white-space: nowrap; flex-shrink: 0; margin-top: 1px; }
+.interp-reco-p1 { background: rgba(218,54,51,.2);  color: #ff7b72; }
+.interp-reco-p2 { background: rgba(227,98,42,.2);  color: #ffa657; }
+.interp-reco-p3 { background: rgba(201,162,39,.2); color: #e3b341; }
+.interp-reco-p4 { background: rgba(139,148,158,.15);color: #8b949e; }
+.interp-reco-text { font-size: 12px; color: var(--text2); line-height: 1.6; }
+.interp-reco-text strong { color: var(--text); }

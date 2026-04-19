@@ -409,3 +409,21 @@ document.addEventListener('DOMContentLoaded', ()=>{
   });
   showSection('overview');
 });
+
+/* ── Navigation: ajout section interprétation ─────────────── */
+const _origShowSection = showSection;
+showSection = function(id) {
+  document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
+  document.querySelectorAll('.nav-link').forEach(l=>l.classList.remove('active'));
+  const sec = document.getElementById('sec-'+id);
+  if (sec) sec.classList.add('active');
+  const btn = document.querySelector(`[data-section="${id}"]`);
+  if (btn) btn.classList.add('active');
+  if (!inited[id]) {
+    inited[id]=true;
+    if (id==='overview')       initOverview();
+    if (id==='pathfinders')    initPathfinders();
+    if (id==='majeurs')        initMajeurs();
+    if (id==='donnees')        initTable();
+  }
+};

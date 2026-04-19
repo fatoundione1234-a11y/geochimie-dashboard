@@ -34,6 +34,11 @@
     <button class="nav-link" data-section="donnees">
       <span class="icon">🗂️</span> Tableau complet
     </button>
+
+    <div class="nav-section" style="margin-top:8px;">Rapport</div>
+    <button class="nav-link" data-section="interpretation">
+      <span class="icon">📝</span> Interprétation
+    </button>
   </nav>
 
   <div class="sidebar-footer">
@@ -65,7 +70,6 @@
         <div class="section-desc">15 échantillons analysés · Zone Aurifère Fictive · Bouclier Précambrien · 2024</div>
       </div>
 
-      <!-- Metrics -->
       <div class="metrics">
         <div class="metric-card gold">
           <div class="metric-label">Au maximum</div>
@@ -99,7 +103,6 @@
         </div>
       </div>
 
-      <!-- Charts row 1 -->
       <div class="grid-full">
         <div class="card">
           <div class="card-title">Teneur en or par échantillon (ppb)</div>
@@ -115,7 +118,6 @@
         </div>
       </div>
 
-      <!-- Charts row 2 -->
       <div class="grid-2">
         <div class="card">
           <div class="card-title">Répartition par classe Au</div>
@@ -131,7 +133,6 @@
         </div>
       </div>
 
-      <!-- Charts row 3 -->
       <div class="grid-full">
         <div class="card">
           <div class="card-title">Évolution de la teneur Au selon la profondeur (m)</div>
@@ -250,6 +251,185 @@
           <tbody id="data-tbody"></tbody>
         </table>
       </div>
+    </section>
+
+    <!-- ══ SECTION: Interprétation ═══════════════════════════ -->
+    <section class="section" id="sec-interpretation">
+      <div class="section-header">
+        <div class="section-title">Interprétation géologique</div>
+        <div class="section-desc">Conclusions et recommandations d'exploration — Zone Aurifère Fictive · 2024</div>
+      </div>
+
+      <!-- Synthèse générale -->
+      <div class="interp-card interp-gold">
+        <div class="interp-card-head">
+          <span class="interp-icon">🏅</span>
+          <div>
+            <div class="interp-card-title">Synthèse générale du potentiel aurifère</div>
+            <div class="interp-card-sub">Évaluation globale de la zone d'étude</div>
+          </div>
+          <span class="badge badge-th">Potentiel élevé</span>
+        </div>
+        <div class="interp-body">
+          La zone d'étude du Bouclier Précambrien présente un <strong>potentiel aurifère significatif</strong>.
+          Sur 15 échantillons analysés, 5 dépassent le seuil de 2 000 ppb Au, ce qui représente <strong>33 % de cibles prioritaires</strong>.
+          La teneur maximale enregistrée atteint <strong>12 400 ppb (GC-11)</strong> dans un dyke de quartz-carbonates,
+          valeur caractéristique d'une minéralisation de type filonien hydrothermale.
+          La distribution spatiale des anomalies suggère un contrôle structural fort, associé aux zones de cisaillement de la Formation Pontiac.
+        </div>
+      </div>
+
+      <!-- Grid 2 colonnes -->
+      <div class="grid-2" style="margin-top:16px;">
+
+        <!-- Cibles prioritaires -->
+        <div class="interp-card interp-red">
+          <div class="interp-card-head">
+            <span class="interp-icon">🎯</span>
+            <div>
+              <div class="interp-card-title">Cibles prioritaires (≥ 2 000 ppb)</div>
+              <div class="interp-card-sub">5 échantillons — action immédiate recommandée</div>
+            </div>
+          </div>
+          <div class="interp-body">
+            <div class="interp-sample-list">
+              <div class="interp-sample">
+                <span class="interp-sample-id">GC-11</span>
+                <span class="interp-sample-desc">Dyke de quartz-carbonates, Fm. Pontiac, 62 m — <strong>12 400 ppb</strong>. Minéralisation filonienne type orpaillage. Priorité absolue pour forage.</span>
+              </div>
+              <div class="interp-sample">
+                <span class="interp-sample-id">GC-07</span>
+                <span class="interp-sample-desc">Zone de cisaillement, Fm. Pontiac, 88 m — <strong>8 950 ppb</strong>. Contrôle structural majeur. Extension en profondeur probable.</span>
+              </div>
+              <div class="interp-sample">
+                <span class="interp-sample-id">GC-15</span>
+                <span class="interp-sample-desc">Diorite séricitisée, Fm. Normétal, 115 m — <strong>6 200 ppb</strong>. Altération hydrothermale intense. Halo d'altération à délimiter.</span>
+              </div>
+              <div class="interp-sample">
+                <span class="interp-sample-id">GC-09</span>
+                <span class="interp-sample-desc">Granodiorite, Fm. Abitibi, 95 m — <strong>4 820 ppb</strong>. Intrusion minéralisée. Contact lithologique favorable.</span>
+              </div>
+              <div class="interp-sample">
+                <span class="interp-sample-id">GC-02</span>
+                <span class="interp-sample-desc">Granite porphyre, Fm. Abitibi, 80 m — <strong>3 250 ppb</strong>. Minéralisation liée à l'intrusion. Potentiel d'extension latérale.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Pathfinders -->
+        <div class="interp-card interp-blue">
+          <div class="interp-card-head">
+            <span class="interp-icon">🔬</span>
+            <div>
+              <div class="interp-card-title">Signature géochimique de la minéralisation</div>
+              <div class="interp-card-sub">Analyse des éléments pathfinders</div>
+            </div>
+          </div>
+          <div class="interp-body">
+            <p>Le vecteur géochimique de la minéralisation aurifère est clairement défini par une <strong>association Te–As–S</strong> à très forte corrélation :</p>
+            <div class="interp-corr-list">
+              <div class="interp-corr-row">
+                <span class="interp-corr-elem" style="color:#da3633;">Te</span>
+                <div class="interp-corr-bar-bg"><div class="interp-corr-bar-fill" style="width:97%;background:#da3633;"></div></div>
+                <span class="interp-corr-val">r = 0.97</span>
+                <span class="interp-corr-desc">Télurites d'or directement associés</span>
+              </div>
+              <div class="interp-corr-row">
+                <span class="interp-corr-elem" style="color:#e3622a;">As</span>
+                <div class="interp-corr-bar-bg"><div class="interp-corr-bar-fill" style="width:92%;background:#e3622a;"></div></div>
+                <span class="interp-corr-val">r = 0.92</span>
+                <span class="interp-corr-desc">Arsénopyrite — halo d'altération primaire</span>
+              </div>
+              <div class="interp-corr-row">
+                <span class="interp-corr-elem" style="color:#c9a227;">S</span>
+                <div class="interp-corr-bar-bg"><div class="interp-corr-bar-fill" style="width:91%;background:#c9a227;"></div></div>
+                <span class="interp-corr-val">r = 0.91</span>
+                <span class="interp-corr-desc">Sulfures — porteurs principaux de l'or</span>
+              </div>
+              <div class="interp-corr-row">
+                <span class="interp-corr-elem" style="color:#8b949e;">Sb</span>
+                <div class="interp-corr-bar-bg"><div class="interp-corr-bar-fill" style="width:88%;background:#8b949e;"></div></div>
+                <span class="interp-corr-val">r = 0.88</span>
+                <span class="interp-corr-desc">Antimonite — enveloppe distale</span>
+              </div>
+            </div>
+            <p style="margin-top:10px;">Cette association est typique des <strong>gîtes mésothermaux orogéniques</strong> du Bouclier canadien (type Abitibi).</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Contrôle géologique -->
+      <div class="interp-card interp-green" style="margin-top:16px;">
+        <div class="interp-card-head">
+          <span class="interp-icon">🗺️</span>
+          <div>
+            <div class="interp-card-title">Contrôle géologique et structural</div>
+            <div class="interp-card-sub">Facteurs favorisant la minéralisation</div>
+          </div>
+        </div>
+        <div class="interp-body">
+          <div class="grid-3" style="margin:0;">
+            <div class="interp-factor">
+              <div class="interp-factor-title">Formation Pontiac</div>
+              <div class="interp-factor-desc">Formation la plus productive avec Au moy. &gt; 7 000 ppb. Les zones de cisaillement associées constituent les conduits préférentiels des fluides hydrothermaux aurifères.</div>
+            </div>
+            <div class="interp-factor">
+              <div class="interp-factor-title">Profondeur optimale</div>
+              <div class="interp-factor-desc">Les teneurs les plus élevées sont concentrées entre <strong>60 et 120 m</strong> de profondeur, suggérant une zone de dépôt liée à des changements de pression/température.</div>
+            </div>
+            <div class="interp-factor">
+              <div class="interp-factor-title">Altération hydrothermale</div>
+              <div class="interp-factor-desc">La séricitisation (GC-15) et la carbonatisation (GC-11) sont les marqueurs d'altération les plus fiables. SiO₂ élevé (&gt;70 %) corrèle avec les teneurs Au maximales.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Recommandations -->
+      <div class="interp-card interp-purple" style="margin-top:16px;">
+        <div class="interp-card-head">
+          <span class="interp-icon">📋</span>
+          <div>
+            <div class="interp-card-title">Recommandations d'exploration</div>
+            <div class="interp-card-sub">Programme de travaux proposé — priorité décroissante</div>
+          </div>
+        </div>
+        <div class="interp-body">
+          <div class="interp-reco-list">
+            <div class="interp-reco">
+              <span class="interp-reco-badge interp-reco-p1">Priorité 1</span>
+              <div class="interp-reco-text">
+                <strong>Forage de définition sur GC-11 et GC-07</strong> (Fm. Pontiac) — Extension en profondeur et en latéral des zones de cisaillement aurifères. Maillage recommandé : 25 × 25 m.
+              </div>
+            </div>
+            <div class="interp-reco">
+              <span class="interp-reco-badge interp-reco-p2">Priorité 2</span>
+              <div class="interp-reco-text">
+                <strong>Levé géochimique sol sur la Fm. Abitibi</strong> — Délimitation des halos en As et Te autour de GC-09 et GC-02. Densité : 1 échantillon / 50 m sur grille.
+              </div>
+            </div>
+            <div class="interp-reco">
+              <span class="interp-reco-badge interp-reco-p3">Priorité 3</span>
+              <div class="interp-reco-text">
+                <strong>Levé géophysique IP (polarisation induite)</strong> — Détection des corps sulfurés en profondeur sur les zones à Au modéré (GC-10, GC-14). Profondeur d'investigation : 0–300 m.
+              </div>
+            </div>
+            <div class="interp-reco">
+              <span class="interp-reco-badge interp-reco-p4">Priorité 4</span>
+              <div class="interp-reco-text">
+                <strong>Réévaluation des zones faibles</strong> (GC-05, GC-08, GC-13) — Vérifier si ces zones se situent en périphérie d'un halo d'altération plus large avant d'exclure.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Note de bas de page -->
+      <div style="margin-top:16px;padding:12px 16px;border:1px solid var(--border);border-radius:var(--radius);font-size:12px;color:var(--text3);">
+        ⚠️ <strong style="color:var(--text2);">Avertissement :</strong> Ces données et interprétations sont issues d'un projet fictif à des fins de démonstration. Toute décision d'exploration réelle doit s'appuyer sur une campagne de terrain validée par un géologue qualifié (QP/CP).
+      </div>
+
     </section>
 
   </div><!-- /content -->
